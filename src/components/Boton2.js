@@ -16,8 +16,6 @@ export default function Boton2({
   setTotalDealer,
   sumarDealer,
   comparar,
-  
-  
 }) {
   //Array para los palos
 
@@ -32,7 +30,6 @@ export default function Boton2({
     let palo = getRandomSuit(4);
     newElement.src = "./cards/" + number + ".png";
     parent.appendChild(newElement);
-    
   };
 
   const rendirse = () => {
@@ -67,22 +64,20 @@ export default function Boton2({
     } else {
       console.log("Tu total es: " + total);
     }
-    
+
     /*const totalito = document.getElementById("#total-text");
     totalito.classList.add("carta");
     totalito.innerText = "gggggg";*/
   };
   const handleClick = () => {
     if (usado == false) {
-      
       plantarse();
+      sumarDealer();
       cambiarUsado();
-      
-      //comparar();
-      //console.log("total dealer es: " + totalDealer);
-    }
 
-   
+      comparar();
+      console.log("total dealer es: " + totalDealer);
+    }
 
     //rendirse2();
 

@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import { images } from "./IndexImages";
 import { imagenes } from "./IndexImages";
 
-
 export default function Boton({
   cambiarUsado,
   usado,
@@ -14,8 +13,8 @@ export default function Boton({
   total,
   dealer,
   setDealer,
-  carta2, 
-  sumarDealer
+  sumarDealer,
+  carta2,
 }) {
   //Array para los palos
 
@@ -47,7 +46,6 @@ export default function Boton({
     //console.log(dealer);
     parent.appendChild(newElement);
     sumarDealer();
-   
   };
 
   const handleClick = () => {
