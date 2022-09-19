@@ -39,6 +39,10 @@
 .contenedor-rendido{
   
   /*filter: blur(6px);*/
+  width: 500px;
+  height: 500px;
+  background-color: #8313e7;
+
   
 }
 
@@ -151,7 +155,7 @@
 .rendido{
   width: 500px;
   height: 300px;
-  background-color:bisque;
+  background-color:#fe05e1;
   position: absolute; 
   left: 35%; 
   top: 25%; 

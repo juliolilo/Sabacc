@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { images } from "./IndexImages";
 import { imagenes } from "./IndexImages";
+import back from '../images/back.jpg';
 
 export default function Boton({
   cambiarUsado,
@@ -15,6 +16,9 @@ export default function Boton({
   setDealer,
   sumarDealer,
   carta2,
+  dealerImg,
+  setDealerImg,
+  
 }) {
   //Array para los palos
 
@@ -41,11 +45,23 @@ export default function Boton({
     newElement.classList.add("card2");
     carta2 = imagenes.pop();
     dealer.push(carta2);
+    
     setDealer(dealer);
-    newElement.src = dealer[dealer.length - 1].src;
+    dealerImg.push(newElement);
+    setDealerImg(dealerImg);
+    if(usado==false){
+      newElement.src = back;
+    }
+    
     //console.log(dealer);
     parent.appendChild(newElement);
     sumarDealer();
+    
+    
+    
+
+
+    
   };
 
   const handleClick = () => {

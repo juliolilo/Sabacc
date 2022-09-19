@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import background from "./background.css";
 import Boton2 from "../components/Boton2";
 import Boton from "../components/Boton";
+import Boton3 from "./Boton3";
 import { images } from "./IndexImages";
 import { imagenes } from "./IndexImages";
+import  alertar from "../script";
 
 import * as ReactDOMClient from "react-dom/client";
 
@@ -17,6 +19,27 @@ function Background() {
   const [totalDealer, setTotalDealer] = useState(0);
   const [player, setPlayer] = useState([]);
   const [dealer, setDealer] = useState([]);
+  const [dealerImg, setDealerImg] = useState([]);
+  
+
+  /*useEffect(() => {
+   console.log(dealerImg);
+  },[dealerImg]);*/
+  
+  useEffect(() => {
+    if(usado==true){
+      let i=0;
+      console.log(dealerImg);
+      dealerImg.map(function(element) {
+        element.src = dealer[i].src;
+        i++;
+      });
+      
+    }
+   },[usado]);
+
+   
+ 
 
   const cambiarUsado = () => {
     setUsado(true);
@@ -25,16 +48,21 @@ function Background() {
 
   //Funciones
 
+
+
   const comparar = () => {
-    if (total > 23 || total < -23) {
+    if (total > 23 || total < -23 ) {
       //Que estén dentro del rango
       console.log("Bombed Out!!! " + total);
     } else {
-        if (total >= 0 && totalDealer >= 0) {
+        if (total >= 0 && totalDealer >= 0 && totalDealer < 23) {
             if (total > totalDealer) {
           console.log("Has ganado con: " + total);
           console.log("El dealer tiene: " + totalDealer);
-        }   else {
+        }   else if(total >= 0 && totalDealer >= 0 && totalDealer > 23) {
+          console.log("Has ganado con: " + total);
+          console.log("El dealer tiene: " + totalDealer);
+        } else{
           console.log("Pierdes con: " + total);
           console.log("El dealer tiene: " + totalDealer);
         }
@@ -132,6 +160,8 @@ function Background() {
           dealer={dealer}
           setDealer={setDealer}
           sumarDealer={sumarDealer}
+          setDealerImg={setDealerImg}
+          dealerImg={dealerImg}
         />
         <Boton2
           cambiarUsado={cambiarUsado}
@@ -147,7 +177,14 @@ function Background() {
           totalDealer={totalDealer}
           comparar={comparar}
         />
-        <div className="plantarse opcion">Plantarse</div>
+        <Boton3 
+        cambiarUsado={cambiarUsado}
+        cambiarInfo={cambiarInfo}
+        setPlayer={setPlayer}
+        carta={carta}
+        player={player}
+        total={total}
+        usado={usado}/>
       </div>
     </div>
   );

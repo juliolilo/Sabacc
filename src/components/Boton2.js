@@ -32,23 +32,7 @@ export default function Boton2({
     parent.appendChild(newElement);
   };
 
-  const rendirse = () => {
-    const contenedor = document.querySelector(".contenedor");
-    contenedor.classList.add("contenedor-rendido");
-    var newElement = document.createElement("div");
-    newElement.classList.add("rendido");
-    newElement.innerText = "Te has rendido";
-    newElement.innerHTML = `
-    <h1 class= "h1-rendido">Te has rendido</h1>
-    <p class="texto-rendido">Recuperas el 50% de lo apostado</p>`;
-    /*newElement.innerHTML = " <img className='card' src='cards/BACK.png'></img>";*/
-    //newElement.src = 'cards/BACK.png';
-    let number = getRandomInt(2, 11);
-    let palo = getRandomSuit(4);
-    //newElement.src = "./cards/" + number + "-" + palos[palo] + ".png";
-    //parent.appendChild(newElement);
-    contenedor.appendChild(newElement);
-  };
+  
 
   const rendirse2 = () => {
     //alert("pulsaste");
@@ -71,15 +55,16 @@ export default function Boton2({
   };
   const handleClick = () => {
     if (usado == false) {
-      plantarse();
-      sumarDealer();
+      
+      //plantarse();
+      //sumarDealer();
       cambiarUsado();
 
       comparar();
       console.log("total dealer es: " + totalDealer);
     }
 
-    //rendirse2();
+    
 
     //usado = true;
 
@@ -98,7 +83,7 @@ export default function Boton2({
 
   return (
     <div onClick={handleClick} className="robar opcion">
-      Rendirse
+      Plantarse
     </div>
   );
   /*const rootElement = document.getElementById("root");
