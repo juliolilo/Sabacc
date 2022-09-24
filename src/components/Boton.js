@@ -18,6 +18,9 @@ export default function Boton({
   carta2,
   dealerImg,
   setDealerImg,
+  turnoJugador,
+  turnarse,
+  logicaDealer
   
 }) {
   //Array para los palos
@@ -39,7 +42,7 @@ export default function Boton({
     cambiarInfo();
   };
 
-  const hit2 = () => {
+  /*const hit2 = () => {
     const parent = document.querySelector(".dealer-cards");
     var newElement = document.createElement("img");
     newElement.classList.add("card2");
@@ -57,17 +60,23 @@ export default function Boton({
     parent.appendChild(newElement);
     sumarDealer();
     
-    
-    
-
-
-    
-  };
+  };*/
 
   const handleClick = () => {
     if (usado == false) {
-      hit();
-      hit2();
+      if(turnoJugador==true){
+        hit();
+        turnarse();
+      }else{
+        //hit2();
+        /*logicaDealer();
+        turnarse();*/
+      }
+      
+      /*setTimeout(() => {
+        hit2();
+      }, 3000);*/
+      
     }
 
     //setValue;

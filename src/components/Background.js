@@ -6,6 +6,8 @@ import Boton3 from "./Boton3";
 import { images } from "./IndexImages";
 import { imagenes } from "./IndexImages";
 import  alertar from "../script";
+import back from '../images/back.jpg';
+import Empezar from "./Empezar";
 
 import * as ReactDOMClient from "react-dom/client";
 
@@ -15,6 +17,7 @@ function Background() {
 
   const [usado, setUsado] = useState(false);
   const [usado2, setUsado2] = useState(false);
+  const [turnoJugador, setTurnoJugador] = useState(true);
   const [total, setTotal] = useState(0);
   const [totalDealer, setTotalDealer] = useState(0);
   const [player, setPlayer] = useState([]);
@@ -38,8 +41,34 @@ function Background() {
     }
    },[usado]);
 
+   useEffect(() => {
+    if(turnoJugador==false){
+      logicaDealer();
+      
+    }
+   },[turnoJugador]);
+
    
- 
+   const hit2 = () => {
+    const parent = document.querySelector(".dealer-cards");
+    var newElement = document.createElement("img");
+    newElement.classList.add("card2");
+    carta2 = imagenes.pop();
+    dealer.push(carta2);
+    
+    setDealer(dealer);
+    dealerImg.push(newElement);
+    setDealerImg(dealerImg);
+    if(usado==false){
+      newElement.src = back;
+    }
+    
+    //console.log(dealer);
+    parent.appendChild(newElement);
+    sumarDealer();
+    console.log("carta agregada");
+    
+  }
 
   const cambiarUsado = () => {
     setUsado(true);
@@ -48,6 +77,37 @@ function Background() {
 
   //Funciones
 
+  const logicaDealer = () => {
+    if(totalDealer < 16){
+      hit2();
+      turnarse();
+      
+      
+    }else{
+      comparar();
+    }
+  }
+
+
+  const empezarJuego = ()=> {
+    console.log("hola");
+    if(turnoJugador== false){
+      
+      logicaDealer();
+    }
+  }
+
+  
+
+
+
+  const turnarse = () => {
+    if(turnoJugador == true){
+      setTurnoJugador(false);
+    }else{
+      setTurnoJugador(true);
+    }
+  }
 
 
   const comparar = () => {
@@ -124,6 +184,8 @@ function Background() {
     setTotalDealer(contador2);
   };
 
+  //empezarJuego();
+
   return (
     <div className="contenedor-principal">
       <div className="tablero">
@@ -162,6 +224,9 @@ function Background() {
           sumarDealer={sumarDealer}
           setDealerImg={setDealerImg}
           dealerImg={dealerImg}
+          turnoJugador={turnoJugador}
+          turnarse={turnarse}
+          logicaDealer={logicaDealer}
         />
         <Boton2
           cambiarUsado={cambiarUsado}
@@ -185,7 +250,11 @@ function Background() {
         player={player}
         total={total}
         usado={usado}/>
+
+        {/* <Empezar 
+        empezarJuego={empezarJuego}/> */}
       </div>
+      
     </div>
   );
 }
