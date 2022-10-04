@@ -25,6 +25,8 @@ function Background() {
   const [dealerImg, setDealerImg] = useState([]);
   
 
+  
+
   /*useEffect(() => {
    console.log(dealerImg);
   },[dealerImg]);*/
@@ -47,6 +49,8 @@ function Background() {
       
     }
    },[turnoJugador]);
+
+   
 
    
    const hit2 = () => {
@@ -79,8 +83,11 @@ function Background() {
 
   const logicaDealer = () => {
     if(totalDealer < 16){
-      hit2();
+      setTimeout(() => {
+        hit2();
       turnarse();
+      }, 2000);
+      
       
       
     }else{
@@ -90,22 +97,42 @@ function Background() {
 
 
   const empezarJuego = ()=> {
-    console.log("hola");
+    
     if(turnoJugador== false){
       
-      logicaDealer();
+        logicaDealer();
+      
+      
     }
   }
 
   
 
 
+  
+
+  
+
 
   const turnarse = () => {
+    const h2Dealer = document.querySelector(".h2-dealer");
+    var h2Player = document.querySelector(".h2-player");
     if(turnoJugador == true){
+      
+      
+
       setTurnoJugador(false);
+     
+      h2Player.classList.add("activo");
+      h2Dealer.classList.remove("activo");
+
     }else{
+      h2Dealer.classList.add("activo");
+      h2Player.classList.remove("activo");
+      console.log(h2Player);
       setTurnoJugador(true);
+      
+      //h2Dealer.classList.remove(".activo");
     }
   }
 
@@ -185,6 +212,7 @@ function Background() {
   };
 
   //empezarJuego();
+  
 
   return (
     <div className="contenedor-principal">
@@ -202,7 +230,7 @@ function Background() {
           <h2 className="h2-normal h2-dealer">Dealer</h2>
         </div>
         <div className="your-cards">
-          <h2 className="h2-normal h2-tu">Tú:</h2>
+          <h2 className="h2-normal h2-player">Tú:</h2>
         </div>
         <div className="contenedor-total">
           <h1 className="total">Total:</h1>
@@ -258,5 +286,4 @@ function Background() {
     </div>
   );
 }
-
 export default Background;
