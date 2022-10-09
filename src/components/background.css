@@ -98,10 +98,23 @@
     align-items: center;
     justify-content: center;
     /*background-color: blueviolet;*/
+    font-weight: 700;
     backdrop-filter: blur(3px);
     background-color: rgba(66, 78, 250, 0.3);
     box-shadow: 0 10px 20px 5px rgba(0, 0, 0, 0.05);
     border: 1px solid white;
+}
+
+.robar{
+  color: steelblue;
+}
+
+.plantarse{
+  color: aquamarine;
+}
+
+.rendirse{
+  color: red;
 }
 
 .h2-normal{

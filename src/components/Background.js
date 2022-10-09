@@ -23,6 +23,8 @@ function Background() {
   const [player, setPlayer] = useState([]);
   const [dealer, setDealer] = useState([]);
   const [dealerImg, setDealerImg] = useState([]);
+  const [text1, setText1] = useState("");
+  const [text2, setText2] = useState("");
   
 
   
@@ -85,7 +87,7 @@ function Background() {
     if(totalDealer < 16){
       setTimeout(() => {
         hit2();
-      turnarse();
+        turnarse();
       }, 2000);
       
       
@@ -96,7 +98,7 @@ function Background() {
   }
 
 
-  const empezarJuego = ()=> {
+  /*const empezarJuego = ()=> {
     
     if(turnoJugador== false){
       
@@ -104,7 +106,7 @@ function Background() {
       
       
     }
-  }
+  }*/
 
   
 
@@ -121,10 +123,11 @@ function Background() {
       
       
 
-      setTurnoJugador(false);
+      
      
       h2Player.classList.add("activo");
       h2Dealer.classList.remove("activo");
+      setTurnoJugador(false);
 
     }else{
       h2Dealer.classList.add("activo");
@@ -138,28 +141,33 @@ function Background() {
 
 
   const comparar = () => {
+    
     if (total > 23 || total < -23 ) {
       //Que estén dentro del rango
       console.log("Bombed Out!!! " + total);
     } else {
         if (total >= 0 && totalDealer >= 0 && totalDealer < 23) {
             if (total > totalDealer) {
-          console.log("Has ganado con: " + total);
-          console.log("El dealer tiene: " + totalDealer);
+               setText1("Has ganado con: ");
+               setText2("El dealer tiene: ");
+         
         }   else if(total >= 0 && totalDealer >= 0 && totalDealer > 23) {
-          console.log("Has ganado con: " + total);
-          console.log("El dealer tiene: " + totalDealer);
+              setText1("Has ganado con: ");
+              setText2("El dealer tiene: ");
         } else{
-          console.log("Pierdes con: " + total);
-          console.log("El dealer tiene: " + totalDealer);
+          setText1("Pierdes con: ");
+          setText2("El dealer tiene: ");
+          
         }
       } else if (total < 0 && totalDealer < 0) {
                   if (total < totalDealer) {
-          console.log("Has ganado con: " + total);
-          console.log("El dealer tiene: " + totalDealer);
+                    setText1("Has ganado con: ");
+                    setText2("El dealer tiene: ");
+          
         } else {
-          console.log("Pierdes con: " + total);
-          console.log("El dealer tiene: " + totalDealer);
+          setText1("Pierdes con: ");
+          setText2("El dealer tiene: ");
+          
         }
       } else if (total >= 0 && totalDealer < 0) {
           let aux1;
@@ -168,11 +176,11 @@ function Background() {
           aux1 = 23 - total;
           aux2 = 23 + totalDealer;
           if (aux1 < aux2) {
-          console.log("Pierdes con: " + total);
-          console.log("El dealer tiene: " + totalDealer);
+            setText1("Pierdes con: ");
+          setText2("El dealer tiene: ");
           } else {
-          console.log("Has ganado con: " + total);
-          console.log("El dealer tiene: " + totalDealer);
+            setText1("Has ganado con: ");
+                    setText2("El dealer tiene: ");
         } 
       } else if (total >= 0 && totalDealer < 0) {
         let aux1;
@@ -181,14 +189,25 @@ function Background() {
         aux1 = 23 - total;
         aux2 = 23 + totalDealer;
         if (aux2 < aux1) {
-        console.log("Pierdes con: " + total);
-        console.log("El dealer tiene: " + totalDealer);
+          setText1("Pierdes con: ");
+          setText2("El dealer tiene: ");
+        
         } else {
-        console.log("Has ganado con: " + total);
-        console.log("El dealer tiene: " + totalDealer);
+          setText1("Has ganado con: ");
+                    setText2("El dealer tiene: ");
+        
       } 
     } 
     } 
+
+    const contenedor = document.querySelector(".tablero");
+    var newElement = document.createElement("div");
+    newElement.classList.add("rendido");
+    
+    newElement.innerHTML = `
+    <h1 class= "h1-rendido">${text1} ${total}</h1>
+    <p class="texto-rendido">${text2} ${totalDealer}</p>`;
+    contenedor.appendChild(newElement);
   };
 
   const cambiarInfo = () => {
@@ -269,6 +288,11 @@ function Background() {
           sumarDealer={sumarDealer}
           totalDealer={totalDealer}
           comparar={comparar}
+          turnoJugador={turnoJugador}
+          text1={text1}
+          setText1={setText1}
+          text2={text2}
+          setText2={setText2}
         />
         <Boton3 
         cambiarUsado={cambiarUsado}

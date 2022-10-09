@@ -40,7 +40,7 @@ export default function Boton3({
     }
 
     return (
-        <div onClick={handleClick} className="robar opcion">
+        <div onClick={handleClick} className="rendirse opcion">
           Rendirse
         </div>
       );

@@ -16,21 +16,15 @@ export default function Boton2({
   setTotalDealer,
   sumarDealer,
   comparar,
+  turnoJugador,
+  text1,
+  text2,
+  setText1,
+  setText2
 }) {
   //Array para los palos
 
-  const hit = () => {
-    const parent = document.querySelector(".your-cards");
-    var newElement = document.createElement("img");
-    newElement.classList.add("card");
-    newElement.innerText = "New Element";
-    /*newElement.innerHTML = " <img className='card' src='cards/BACK.png'></img>";*/
-    //newElement.src = 'cards/BACK.png';
-    let number = getRandomInt(2, 11);
-    let palo = getRandomSuit(4);
-    newElement.src = "./cards/" + number + ".png";
-    parent.appendChild(newElement);
-  };
+ 
 
   
 
@@ -41,28 +35,31 @@ export default function Boton2({
     total.innerText = "gggggg";*/
   };
 
-  const plantarse = () => {
+  /*const plantarse = () => {
     console.log(total);
     if (total > 23) {
       console.log("Bombed Out!!! " + total);
     } else {
       console.log("Tu total es: " + total);
-    }
+    }*/
 
     /*const totalito = document.getElementById("#total-text");
     totalito.classList.add("carta");
-    totalito.innerText = "gggggg";*/
-  };
+    totalito.innerText = "gggggg";
+  };*/
   const handleClick = () => {
-    if (usado == false) {
+    if(turnoJugador == true){
+      if (usado == false) {
       
-      //plantarse();
-      //sumarDealer();
-      cambiarUsado();
-
-      comparar();
-      console.log("total dealer es: " + totalDealer);
+        //plantarse();
+        //sumarDealer();
+        cambiarUsado();
+  
+        comparar();
+        
+      }
     }
+    
 
     
 
@@ -82,7 +79,7 @@ export default function Boton2({
   // expected output: 0, 1 or 2
 
   return (
-    <div onClick={handleClick} className="robar opcion">
+    <div onClick={handleClick} className="plantarse opcion">
       Plantarse
     </div>
   );
