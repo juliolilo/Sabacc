@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Sabacc/static/css/main.2d12e4da.css",
-    "main.js": "/Sabacc/static/js/main.8c6f8286.js",
+    "main.css": "/Sabacc/static/css/main.700b50f4.css",
+    "main.js": "/Sabacc/static/js/main.8fcf4d4f.js",
     "static/js/787.3c0f73c1.chunk.js": "/Sabacc/static/js/787.3c0f73c1.chunk.js",
     "static/media/back.jpg": "/Sabacc/static/media/back.40dc875eb6fd86bdb602.jpg",
     "static/media/51.jpg": "/Sabacc/static/media/51.4a925eccdcf26e531711.jpg",
@@ -74,12 +74,12 @@
     "static/media/54.jpg": "/Sabacc/static/media/54.489b5e33a51fd70e0836.jpg",
     "static/media/background.jpg": "/Sabacc/static/media/background.d490a0a264c11922f1f0.jpg",
     "index.html": "/Sabacc/index.html",
-    "main.2d12e4da.css.map": "/Sabacc/static/css/main.2d12e4da.css.map",
-    "main.8c6f8286.js.map": "/Sabacc/static/js/main.8c6f8286.js.map",
+    "main.700b50f4.css.map": "/Sabacc/static/css/main.700b50f4.css.map",
+    "main.8fcf4d4f.js.map": "/Sabacc/static/js/main.8fcf4d4f.js.map",
     "787.3c0f73c1.chunk.js.map": "/Sabacc/static/js/787.3c0f73c1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2d12e4da.css",
-    "static/js/main.8c6f8286.js"
+    "static/css/main.700b50f4.css",
+    "static/js/main.8fcf4d4f.js"
   ]
 }
